@@ -1,0 +1,563 @@
+{
+  "PLANTA I": [
+    {
+      "legajo": 2001,
+      "nombre": "Abaca G.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2009,
+      "nombre": "Aprile P.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-22",
+        "23/12/205",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2013,
+      "nombre": "Arduino C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2024,
+      "nombre": "Cabrera J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2054,
+      "nombre": "Gimenez M.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-08",
+      "articulos": [
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2060,
+      "nombre": "Gomez D.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2098,
+      "nombre": "Ochoa R",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-22",
+        "23/12/205",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2108,
+      "nombre": "Paviolo M.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-08",
+      "articulos": [
+        "2025-12-22",
+        "23/12/205",
+        "2026-01-02",
+        "2026-02-09"
+      ]
+    },
+    {
+      "legajo": 2112,
+      "nombre": "Perez J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2114,
+      "nombre": "Picco L.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2118,
+      "nombre": "Pringles O.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2122,
+      "nombre": "Reinoso G.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-08",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2134,
+      "nombre": "Rodriguez P.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2150,
+      "nombre": "SILVA G.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2152,
+      "nombre": "Sivel G.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02",
+        "2026-02-03"
+      ]
+    },
+    {
+      "legajo": 2156,
+      "nombre": "Tello D.",
+      "vacacion_inicio": "2026-02-05",
+      "vacacion_fin": "2026-02-08",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2201,
+      "nombre": "Alassia C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2222,
+      "nombre": "Aragno P.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2225,
+      "nombre": "ARIAS E",
+      "vacacion_inicio": "2026-01-12",
+      "vacacion_fin": "2026-02-19",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-01-09",
+        "2026-02-18",
+        "2026-02-19"
+      ]
+    },
+    {
+      "legajo": 2250,
+      "nombre": "Caballero F.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2253,
+      "nombre": "Calderon L.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2254,
+      "nombre": "Calderon G.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2260,
+      "nombre": "Casas C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2269,
+      "nombre": "Cordoba D.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-08",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2271,
+      "nombre": "Cittadini, E",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2276,
+      "nombre": "Cruzeño, J",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2279,
+      "nombre": "Cuevas, C",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2333,
+      "nombre": "Furlani I",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2339,
+      "nombre": "GIRARDELLI C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2358,
+      "nombre": "Guzman J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2414,
+      "nombre": "Lopez M.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2502,
+      "nombre": "Pacheco L.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2558,
+      "nombre": "Reboyras R.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2653,
+      "nombre": "Varas J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02",
+        "2026-02-03"
+      ]
+    },
+    {
+      "legajo": 2658,
+      "nombre": "Vera C.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2664,
+      "nombre": "Vilches F.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2698,
+      "nombre": "Fonseca J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": []
+    },
+    {
+      "legajo": 2704,
+      "nombre": "Pacheco R.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-25",
+      "articulos": []
+    },
+    {
+      "legajo": 2720,
+      "nombre": "Secondino, I.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-18",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 9554,
+      "nombre": "Daverio,J.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 9796,
+      "nombre": "Sontag,N.",
+      "vacacion_inicio": "2026-01-12",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    }
+  ],
+  "PLANTA HN": [
+    {
+      "legajo": 2003,
+      "nombre": "Ahuir C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2035,
+      "nombre": "Coutsiers C.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-22",
+        "23/12/205",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2092,
+      "nombre": "Negrette, J",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": []
+    },
+    {
+      "legajo": 2128,
+      "nombre": "Rodriguez, J.L",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02"
+      ]
+    },
+    {
+      "legajo": 2130,
+      "nombre": "Rodriguez, M",
+      "vacacion_inicio": "2026-01-19",
+      "vacacion_fin": "2026-02-17",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2212,
+      "nombre": "Albiero, M",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2025-12-29",
+        "2025-12-30",
+        "2026-01-02",
+        "2026-02-02",
+        "2026-02-03"
+      ]
+    },
+    {
+      "legajo": 2259,
+      "nombre": "Carranza M.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2440,
+      "nombre": "Martinez C.",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2497,
+      "nombre": "Oviedo, E",
+      "vacacion_inicio": null,
+      "vacacion_fin": null,
+      "articulos": []
+    },
+    {
+      "legajo": 2503,
+      "nombre": "Pacheco C.D.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2670,
+      "nombre": "Vicenzini, F.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-25",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2694,
+      "nombre": "Coutsier, M.",
+      "vacacion_inicio": "2026-01-19",
+      "vacacion_fin": "2026-02-01",
+      "articulos": [
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2707,
+      "nombre": "Ruiz, D.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-25",
+      "articulos": [
+        "2025-12-26",
+        "2026-01-02"
+      ]
+    },
+    {
+      "legajo": 2712,
+      "nombre": "Varas M.",
+      "vacacion_inicio": "2026-01-05",
+      "vacacion_fin": "2026-01-22",
+      "articulos": [
+        "2026-01-02",
+        "2026-01-23"
+      ]
+    }
+  ]
+}
