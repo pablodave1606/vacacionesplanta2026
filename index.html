@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vacaciones - Planta</title>
+
+<style>
+.name-hn {
+  background: #e8f4ff !important;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  margin:10px;
+  background:#f6f7fb;
+  color:#222;
+}
+header{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+h1{margin:0 0 10px 0;font-size:20px}
+.controls{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.grid{
+  overflow:auto;
+  border:1px solid #ddd;
+  background:#fff;
+  padding:8px;
+  border-radius:6px;
+  max-height: calc(100vh - 180px);
+}
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  font-size:12px;
+}
+
+th,td{
+  border:1px solid #eee;
+  padding:4px;
+  min-width:28px;
+  text-align:center;
+  white-space:nowrap;
+}
+
+th.sticky{
+  position:sticky;
+  left:0;
+  background:#fafafa;
+  z-index:7;
+}
+
+td.name{
+  min-width:220px;
+  text-align:left;
+  position:sticky;
+  left:0;
+  background:#fff;
+  z-index:6;
+}
+
+.vac{ background:#7ed47e !important; font-weight:bold; }
+.art{ background:#D7EEFF !important; }
+.holiday{ background:#ffcccc !important; }
+
+.vac-num{ font-size:11px; color:#003300; }
+
+.legend{display:flex;gap:10px;margin-left:10px}
+.btn{
+  padding:6px 8px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  background:#fff;
+  cursor:pointer
+}
+
+.filters{display:flex;gap:6px;align-items:center}
+
+@media(max-width:600px){ td.name{min-width:120px} }
+
+/* BOTONERA MOBIL */
+#mobileMonthNav {
+  display:none;
+  margin-bottom:10px;
+}
+
+@media (max-width: 600px) {
+  #mobileMonthNav {
+    display:flex !important;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  #mobileMonthNav button {
+    flex:1;
+    padding:12px;
+    background:#e1eaff;
+    border:1px solid #7082ff;
+    border-radius:10px;
+    font-size:16px;
+  }
+}
+
+.modal{
+  position:fixed;
+  left:0;top:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+
+.modal-box{
+  background:#fff;
+  padding:16px;
+  border-radius:8px;
+  max-width:420px;
+  width:100%;
+}
+
+label{ display:block; font-size:13px; margin:6px 0; }
+input[type=date]{
+  width:100%;
+  padding:6px;
+  border:1px solid #ccc;
+  border-radius:4px
+}
+
+thead th{
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:5;
+  min-width:28px;
+}
+
+.today-header {
+  background:#fff3a6 !important;
+  border:2px solid #e1c400 !important;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <h1>VACACIONES Y ARTICULOS CENTRO DE EXPLOSIVOS (Dic 2025 - Mar 2026)</h1>
+    <div style="font-size:13px;color:#555">
+      Visualizador de vacaciones y artículos. Click en un día para editar.
+    </div>
+  </div>
+
+  <div class="controls">
+
+    <!-- FILTRO DE MESES -->
+    <div class="filters">
+      Meses:
+      <label><input type="checkbox" checked id="m12"> Dic</label>
+      <label><input type="checkbox" checked id="m1"> Ene</label>
+      <label><input type="checkbox" checked id="m2"> Feb</label>
+      <label><input type="checkbox" checked id="m3"> Mar</label>
+    </div>
+
+    <!-- LEYENDA -->
+    <div class="legend">
+      <div style="display:flex;align-items:center;gap:6px">
+        <div style="width:18px;height:14px;background:#7ed47e;border:1px solid #4a8f4a"></div> Vacaciones
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <div style="width:18px;height:14px;background:#D7EEFF;border:1px solid #9fc7ea"></div> Artículos
+      </div>
+    </div>
+
+    <!-- FILTRO DE PLANTA -->
+    <div class="filters">
+      Personal:
+      <select id="filtroPlanta" class="btn">
+        <option value="TODOS">Todos</option>
+        <option value="PLANTA I">Planta I</option>
+        <option value="PLANTA HN">Planta HN</option>
+      </select>
+    </div>
+
+    <!-- ÚNICO BOTÓN QUE QUEDÓ -->
+    <input type="file" id="upload" accept=".json" class="btn">
+
+  </div>
+</header>
+
+<!-- NAVEGACIÓN MÓVIL POR MESES -->
+<div id="mobileMonthNav">
+  <button onclick="scrollToMonth(11)">Dic</button>
+  <button onclick="scrollToMonth(0)">Ene</button>
+  <button onclick="scrollToMonth(1)">Feb</button>
+  <button onclick="scrollToMonth(2)">Mar</button>
+</div>
+
+<div id="gridWrap" class="grid"></div>
+
+<!-- MODAL -->
+<div id="modal" class="modal" style="display:none">
+  <div class="modal-box">
+    <h3 id="modalTitle">Editar</h3>
+    <div id="modalBody"></div>
+
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
+      <button class="btn" id="saveBtn">Guardar</button>
+      <button class="btn" id="cancelBtn">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ================= CONFIG ===================
+const jsonPath = "vacaciones.json";
+const startDate = new Date(2025,11,1);
+const endDate   = new Date(2026,2,31);
+
+let data = {};
+let flatPeople = [];
+
+const feriadosAR = [
+  "2025-12-25","2026-01-01","2026-02-16",
+  "2026-02-17","2026-03-24","2026-03-29","2026-03-30"
+];
+
+// ========= UTILIDADES ==========
+function dateToYMD(d){
+  const mm = ("0"+(d.getMonth()+1)).slice(-2);
+  const dd = ("0"+d.getDate()).slice(-2);
+  return d.getFullYear()+"-"+mm+"-"+dd;
+}
+
+function ymdToLocalDate(s){
+  const [y,m,d] = s.split("-");
+  return new Date(y, m-1, d);
+}
+
+// ========= NORMALIZACIÓN ==========
+function normalizeData(){
+  Object.keys(data).forEach(pl => {
+    let newPl = pl.toUpperCase().replace("_"," ").trim();
+    if(newPl==="I") newPl="PLANTA I";
+    if(newPl==="HN") newPl="PLANTA HN";
+    if(newPl !== pl){
+      data[newPl] = data[pl];
+      delete data[pl];
+      pl = newPl;
+    }
+    data[pl] = data[pl].map(p => {
+      if(!p.articulos) p.articulos = [];
+      if(typeof p.articulos === "string"){
+        p.articulos = p.articulos
+          .replace(/;/g,",")
+          .split(",")
+          .map(a=>{
+            a=a.trim();
+            if(a.includes("/")){
+              const [d,m,y] = a.split("/");
+              return `${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}`;
+            }
+            return a;
+          })
+          .filter(a=>a.length>0);
+      }
+      return p;
+    });
+  });
+}
+
+// ========= CARGA DEL JSON ==========
+async function loadJSON(){
+  try{
+    const res = await fetch(jsonPath+"?nocache="+Math.random());
+    data = await res.json();
+  }catch(e){
+    data = {};
+  }
+
+  normalizeData();
+  buildFlatList();
+  renderGrid();
+}
+
+// ========= LISTA PLANA ==========
+function buildFlatList(){
+  const filtro = document.getElementById("filtroPlanta").value;
+  flatPeople = [];
+  Object.keys(data).forEach(pl => {
+    if(filtro!=="TODOS" && filtro!==pl) return;
+    data[pl].forEach(p => flatPeople.push({planta:pl, ...p}));
+  });
+  flatPeople.sort((a,b)=>
+    a.planta.localeCompare(b.planta) ||
+    a.nombre.localeCompare(b.nombre)
+  );
+}
+
+function getDatesArray(){
+  const arr = [];
+  for(let d=new Date(startDate); d<=endDate; d.setDate(d.getDate()+1)) arr.push(new Date(d));
+  return arr;
+}
+
+function monthFilterShows(date){
+  const m = date.getMonth();
+  return !(
+    (m===11 && !m12.checked) ||
+    (m===0  && !m1.checked)  ||
+    (m===1  && !m2.checked)  ||
+    (m===2  && !m3.checked)
+  );
+}
+
+// ========= SCROLL A MES (CELULAR) ==========
+function scrollToMonth(m){
+  const first = document.querySelector(`th[data-month="${m}"]`);
+  if(first) first.scrollIntoView({behavior:"smooth", inline:"start"});
+}
+
+// ========= RENDER ==========
+function renderGrid(){
+  const dates = getDatesArray();
+  const wrap = document.getElementById('gridWrap');
+
+  let html = '<table><thead><tr><th class="sticky">Planta / Nombre</th>';
+
+  dates.forEach(d=>{
+    if(!monthFilterShows(d)) return;
+
+    const mIndex = d.getMonth();
+    const monthNames = ["ene.","feb.","mar.","abr.","may.","jun.","jul.","ago.","sep.","oct.","nov.","dic."];
+
+    const ymd = dateToYMD(d);
+    const today = dateToYMD(new Date());
+    const isToday = (ymd===today);
+
+    html += `
+      <th data-month="${mIndex}" class="${isToday?'today-header':''}">
+        <div style="font-size:9px">${monthNames[mIndex]}</div>
+        <div>${("0"+d.getDate()).slice(-2)}</div>
+      </th>
+    `;
+  });
+
+  html += "</tr></thead><tbody>";
+
+  flatPeople.forEach((p,idx)=>{
+    let totalVacCount = 0;
+    let s = p.vacacion_inicio ? ymdToLocalDate(p.vacacion_inicio) : null;
+    let e = p.vacacion_fin    ? ymdToLocalDate(p.vacacion_fin)    : null;
+
+    if(s && e){
+      if(p.articulos.includes(dateToYMD(e))){
+        e = new Date(e);
+        e.setDate(e.getDate()-1);
+      }
+      totalVacCount = Math.max(0, Math.round((e-s)/86400000)+1);
+    }
+
+    html += `<tr>`;
+
+    html += `
+<td class="name ${p.planta==='PLANTA HN'?'name-hn':''}">
+  <div style="font-size:15px;font-weight:bold;">${p.nombre}</div>
+  <div style="font-size:11px;color:#444;margin-top:3px;">
+    Legajo: ${p.legajo}<br>
+    Vacaciones tomadas: ${totalVacCount} días<br>
+    Planta: ${p.planta}
+  </div>
+</td>`;
+
+    let vacCounter = 0;
+
+    dates.forEach(d=>{
+      if(!monthFilterShows(d)) return;
+
+      const mIndex = d.getMonth();
+      const ymd = dateToYMD(d);
+      const localD = new Date(ymd+"T00:00");
+
+      let isVac = (s && e && localD>=s && localD<=e);
+      let isArt = p.articulos.includes(ymd);
+
+      let cls = "";
+      let inside = "";
+
+      if(d.getDay()===0 || d.getDay()===6) cls="holiday";
+      if(feriadosAR.includes(ymd)) cls="holiday";
+
+      if(isVac){
+        cls="vac";
+        vacCounter++;
+        inside=`<span class="vac-num">${vacCounter}</span>`;
+      }
+
+      if(isArt && !isVac) cls="art";
+
+      html += `<td data-month="${mIndex}" class="${cls}" data-person="${idx}" data-date="${ymd}">${inside}</td>`;
+    });
+
+    html += "</tr>";
+  });
+
+  html += "</tbody></table>";
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll("td[data-person]")
+      .forEach(td => td.addEventListener("click", cellClicked));
+}
+
+// ========= MODAL ==========
+function cellClicked(e){
+  const td = e.currentTarget;
+  openModalForDate(td.dataset.person, td.dataset.date);
+}
+
+function openModalForDate(index,date){
+  const p = flatPeople[index];
+
+  modalTitle.innerText = `Editar: ${p.nombre} — ${date}`;
+  modalBody.innerHTML = `
+    <label>Vacación - Inicio <input type="date" id="m_vstart" value="${p.vacacion_inicio||""}"></label>
+    <label>Vacación - Fin <input type="date" id="m_vend"   value="${p.vacacion_fin||""}"></label>
+
+    <label><input type="checkbox" id="m_isart" ${p.articulos.includes(date)?"checked":""}>
+      Marcar este día como ARTÍCULO</label>
+
+    <label>Agregar artículo <input type="date" id="m_addart"></label>
+
+    <div style="font-size:13px;margin-top:6px">Artículos actuales:
+      <span id="listArts">${p.articulos.join(", ")}</span>
+    </div>
+  `;
+
+  modal.style.display="flex";
+
+  saveBtn.onclick = ()=>{
+    p.vacacion_inicio = m_vstart.value||null;
+    p.vacacion_fin    = m_vend.value||null;
+
+    if(!p.articulos) p.articulos = [];
+
+    if(m_isart.checked && !p.articulos.includes(date))
+         p.articulos.push(date);
+
+    if(!m_isart.checked)
+         p.articulos = p.articulos.filter(x=>x!==date);
+
+    if(m_addart.value && !p.articulos.includes(m_addart.value))
+         p.articulos.push(m_addart.value);
+
+    syncBackToData();
+    renderGrid();
+    modal.style.display="none";
+  };
+
+  cancelBtn.onclick = ()=> modal.style.display="none";
+}
+
+function syncBackToData(){
+  const newData = {};
+  flatPeople.forEach(p=>{
+    newData[p.planta] = newData[p.planta] || [];
+  });
+  flatPeople.forEach(p=>{
+    newData[p.planta].push({
+      legajo:p.legajo,
+      nombre:p.nombre,
+      vacacion_inicio:p.vacacion_inicio,
+      vacacion_fin:p.vacacion_fin,
+      articulos:p.articulos
+    });
+  });
+  data = newData;
+}
+
+// ========= EVENTOS ==========
+filtroPlanta.onchange = ()=>{ buildFlatList(); renderGrid(); };
+m12.onchange = renderGrid;
+m1.onchange = renderGrid;
+m2.onchange = renderGrid;
+m3.onchange = renderGrid;
+
+// Subir JSON manual
+upload.onchange = function(e){
+  const f = e.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = ev=>{
+    try{
+      data = JSON.parse(ev.target.result);
+      normalizeData();
+      buildFlatList();
+      renderGrid();
+      alert("JSON cargado correctamente");
+    }catch(err){
+      alert("Archivo JSON inválido");
+    }
+  };
+  r.readAsText(f,"utf-8");
+};
+
+// ========= INICIO ==========
+loadJSON();
+</script>
+</body>
+</html>
