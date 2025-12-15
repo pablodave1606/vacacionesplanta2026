@@ -290,7 +290,7 @@
     {
       "legajo": 2269,
       "nombre": "Cordoba D.",
-      "puestos": ["sacador nitro", "operario dinamitas/gelatina"],
+      "puestos": ["sacador nitro", "operario dinamitas/gelatina","amasador"],
       "vacaciones": [
         {
           "inicio": "2026-01-05",
@@ -691,4 +691,5 @@
       "loa_frac": []
     }
   ]
+
 }
