@@ -1037,6 +1037,162 @@ h1::after {
     background-image: none; /* Ocultar marca de agua en móvil si es muy intrusiva */
   }
 }
+  /* ===== MARCA DE AGUA FIJA DENTRO DE MODALES ===== */
+/* Hacer que los modales tengan posición relativa y overflow */
+#calPersonaBox,
+#mobileIngresoBox {
+  position: relative;
+  overflow: auto; /* Para el scroll interno */
+}
+
+/* Marca de agua FIJA en modal Persona (PC) - NO se mueve con scroll */
+#calPersonaBox::before {
+  content: "";
+  position: fixed; /* Cambiado a FIXED para que sea estático */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado perfecto */
+  width: 300px; /* Tamaño más grande - AJUSTA ESTE VALOR */
+  height: 300px; /* Mismo alto que ancho para mantener proporción */
+  background-image: url('watermark.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* Para que la imagen se ajuste al contenedor */
+  opacity: 0.08; /* Sutil pero visible */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Marca de agua FIJA en modal Móvil */
+#mobileIngresoBox::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Tamaño para móvil */
+  height: 200px;
+  background-image: url('watermark.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Calendarios individuales - NO se mueven con scroll interno */
+.calMes {
+  position: relative;
+  overflow: hidden; /* Para contener el pseudo-elemento */
+}
+
+.calMes::before {
+  content: "";
+  position: absolute; /* Absoluta dentro de cada calendario */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-image: url('watermark.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Modal Novedades */
+#modalNovedades > div {
+  position: relative;
+  overflow: hidden;
+}
+
+#modalNovedades > div::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background-image: url('watermark.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+/* ===== ASEGURAR QUE TODO EL CONTENIDO ESTÉ ENCIMA ===== */
+/* Aplicar a TODOS los elementos dentro de los modales */
+#calPersonaBox > *,
+#calPersonaBox .btn,
+#calPersonaBox h2,
+#calPersonaBox .contacto-modal,
+#calPersonaBox .leyenda-modal,
+#calPersonaBox #mesesPersona,
+#calPersonaBox #resumenPersona,
+#calPersonaBox .calMes,
+#calPersonaBox .calMes *,
+#mobileIngresoBox > *,
+#mobileIngresoBox .modal-header,
+#mobileIngresoBox .status-card,
+#mobileIngresoBox .period-card,
+#mobileIngresoBox .contact-card,
+#mobileIngresoBox .modal-actions,
+#modalNovedades > div > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== AJUSTES PARA RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Modal móvil - marca de agua más pequeña */
+  #mobileIngresoBox::before {
+    width: 160px;
+    height: 160px;
+    opacity: 0.06;
+  }
+  
+  /* Modal persona en móvil (si se abre) */
+  #calPersonaBox::before {
+    width: 180px;
+    height: 180px;
+  }
+  
+  /* Calendarios en móvil */
+  .calMes::before {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* ===== SI QUIERES TAMAÑOS DIFERENTES, AJUSTA ESTOS VALORES ===== */
+/*
+Para agrandar la marca de agua en modal PC:
+  #calPersonaBox::before {
+    width: 400px;  ← Aumenta este valor
+    height: 400px; ← Y este también para mantener proporción
+    opacity: 0.09; ← Quizás aumentar opacidad si la haces más grande
+  }
+
+Para modal móvil:
+  #mobileIngresoBox::before {
+    width: 250px;  ← Más grande
+    height: 250px; ← Igual que ancho
+  }
+
+Para calendarios:
+  .calMes::before {
+    width: 150px;
+    height: 150px;
+  }
+*/
 </style>
 </head>
 
